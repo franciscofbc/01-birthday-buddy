@@ -2,9 +2,9 @@ import Person from './Person';
 
 const List = ({ people }) => {
   return (
-    <section>
+    <section className="people">
       {people.map((person) => {
-        return <Person key={person.id} {...person} />;
+        return <Person key={person.id} person={person} />;
       })}
     </section>
   );

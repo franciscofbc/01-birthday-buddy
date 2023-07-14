@@ -1,5 +1,4 @@
 /* ============= GLOBAL CSS =============== */
-@import url('https://fonts.googleapis.com/css?family=Roboto:500,400');
 
 *,
 ::after,
@@ -15,9 +14,15 @@ html {
 
 :root {
   /* colors */
-  --primary-100: #fae8ff;
+  --primary-100: #f7dafc;
+  --primary-200: #f0b5f9;
+  --primary-300: #e890f5;
+  --primary-400: #e16bf2;
   --primary-500: #d946ef;
-  --primary-700: #a21caf;
+  --primary-600: #ae38bf;
+  --primary-700: #822a8f;
+  --primary-800: #571c60;
+  --primary-900: #2b0e30;
 
   /* grey */
   --grey-50: #f8fafc;
@@ -30,7 +35,6 @@ html {
   --grey-700: #334155;
   --grey-800: #1e293b;
   --grey-900: #0f172a;
-
   /* rest of the colors */
   --black: #222;
   --white: #fff;
@@ -39,21 +43,17 @@ html {
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
-  /* fonts */
-  --headingFont: 'Roboto', sans-serif;
-  --bodyFont: 'Roboto', sans-serif;
-
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
-
   /* rest of the vars */
-  --backgroundColor: var(--primary-100);
+  --backgroundColor: var(--grey-50);
   --textColor: var(--grey-900);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 600px;
+  --fluid-width: 90vw;
 
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -67,24 +67,22 @@ html {
 
 body {
   background: var(--backgroundColor);
-  font-family: var(--bodyFont);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1;
   color: var(--textColor);
 }
-
 p {
   margin: 0;
 }
-
 h1,
 h2,
 h3,
 h4,
 h5 {
   margin: 0;
-  margin-bottom: 1.38rem;
-  font-family: var(--headingFont);
+  /* font-family: var(--headingFont); */
   font-weight: 400;
   line-height: 1;
   text-transform: capitalize;
@@ -118,13 +116,12 @@ h5 {
 
 small,
 .text-small {
-  font-size: var(--extra-small-text);
+  font-size: var(--small-text);
 }
 
 a {
   text-decoration: none;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -135,8 +132,8 @@ ul {
   display: block;
   object-fit: cover;
 }
-
 /* buttons */
+
 .btn {
   cursor: pointer;
   color: var(--white);
@@ -150,22 +147,18 @@ ul {
   text-transform: capitalize;
   display: inline-block;
 }
-
 .btn:hover {
   background: var(--primary-700);
   box-shadow: var(--shadow-3);
 }
-
 .btn-hipster {
   color: var(--primary-500);
   background: var(--primary-200);
 }
-
 .btn-hipster:hover {
   color: var(--primary-200);
   background: var(--primary-700);
 }
-
 .btn-block {
   width: 100%;
 }
@@ -177,6 +170,7 @@ ul {
   border-color: transparent;
   border-radius: var(--borderRadius);
 }
+
 .alert-danger {
   color: var(--red-dark);
   background: var(--red-light);
@@ -185,8 +179,8 @@ ul {
   color: var(--green-dark);
   background: var(--green-light);
 }
+/* form */
 
-/* forms */
 .form {
   width: 90vw;
   max-width: var(--fixed-width);
@@ -196,15 +190,13 @@ ul {
   padding: 2rem 2.5rem;
   margin: 3rem auto;
 }
-
 .form-label {
   display: block;
-  font-size: var(--extra-small-text);
+  font-size: var(--small-text);
   margin-bottom: 0.5rem;
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
 }
-
 .form-input,
 .form-textarea {
   width: 100%;
@@ -217,22 +209,21 @@ ul {
 .form-row {
   margin-bottom: 1rem;
 }
+
 .form-textarea {
   height: 7rem;
 }
-
 ::placeholder {
   font-family: inherit;
   color: var(--grey-400);
 }
-
 .form-alert {
   color: var(--red-dark);
   letter-spacing: var(--letterSpacing);
   text-transform: capitalize;
 }
-
 /* alert */
+
 @keyframes spinner {
   to {
     transform: rotate(360deg);
@@ -250,12 +241,9 @@ ul {
 }
 
 /* title */
+
 .title {
   text-align: center;
-}
-
-.title h2 {
-  margin-bottom: 0.25rem;
 }
 
 .title-underline {
@@ -263,38 +251,56 @@ ul {
   width: 7rem;
   height: 0.25rem;
   margin: 0 auto;
-  /* margin-top: -1rem; */
+  margin-top: 1rem;
+}
+/* ============= PROJECT CSS =============== */
+
+body {
+  max-width: var(--max-width);
+  width: var(--fluid-width);
+  margin: 0 auto;
+  background-color: var(--primary-100);
 }
 
-/* ============= REST OF THE PROJECT =============== */
-
 .container {
-  max-width: var(--fixed-width);
-  display: flex;
-  flex-direction: column;
+  max-width: 37.5rem;
+  /* max-height: 39.625rem; */
+  margin: 0 auto;
+  margin-top: 0.75rem;
+  padding: 1.5rem 2rem;
   background-color: var(--white);
   border-radius: var(--borderRadius);
-  padding: 1.5rem 2rem;
-  margin: 4rem auto;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition);
+}
+
+.container:hover {
   box-shadow: var(--shadow-4);
 }
 
-.container h1 {
+.title {
   font-size: 2rem;
+  text-align: start;
 }
 
-.container .person {
+.people {
+  margin: 2rem 0 1.5rem;
+}
+
+.person {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
-.container .person .avatar {
+.person .img {
   margin-right: 0.75rem;
   width: 75px;
   height: 75px;
   border-radius: 50%;
+  box-shadow: var(--shadow-2);
 }
 .person h4 {
   margin: 0;
+  margin-bottom: 1rem;
 }
